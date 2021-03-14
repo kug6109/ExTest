@@ -106,3 +106,73 @@ public class rsp1 {
 	}
 
 }
+
+
+// Third way
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+
+public class rsp3 {//변수선언 클래스
+		  BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		  int com=0;
+		  int ur=0;
+		  String coms, urs;
+
+		 void result()throws IOException{
+
+		  com = (int)(Math.random()*3)+1;
+		   
+		   System.out.println("1.가위");
+		   System.out.println("2.바위");
+		   System.out.println("3.보");
+		   System.out.print("선택: ");
+		   ur = Integer.parseInt(in.readLine()); 
+		   System.out.println();
+
+		  switch(com){
+		    case 1: coms = "가위"; break;
+		    case 2: coms = "바위"; break;
+		    case 3: coms = "보"; break;
+		    default:
+		     break;
+		   }
+
+		  switch(ur){
+		    case 1: urs = "가위"; break;
+		    case 2: urs = "바위"; break;
+		    case 3: urs = "보"; break;
+		    default:
+		     break;
+		   }
+		  
+		   System.out.println("컴퓨터: "+coms);
+		   System.out.println("사용자: "+urs);
+		   System.out.println();
+
+		  if(com == ur){
+		    System.out.println("비겼습니다");
+		    System.out.println();
+		   }
+		   else if(com>ur){
+		    if(com==1){
+		     System.out.println("사용자 WIN");
+		    }
+		    else{
+		     System.out.println("컴퓨터 WIN");
+		     System.out.println();
+		    }
+		   }
+		   else{
+		    if(ur==1){
+		     System.out.println("컴퓨터 WIN");
+		    }
+		    else{
+		     System.out.println("사용자 WIN");
+		     System.out.println();
+		    }
+		   }
+		  }
+}
