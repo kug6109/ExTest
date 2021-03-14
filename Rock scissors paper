@@ -1,0 +1,108 @@
+// First way
+import java.io.IOException;
+
+
+public class rsp {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		String[] KBB = {"", "가위","바위","보"}; 
+        
+        int user = 0; 
+        int com = 0; 
+        int input = 0;
+
+        do { 
+              System.out.println("값을 입력해주세요.(가위는 1, 바위는 2, 보는 3)"); 
+              input = System.in.read();             
+        } while (input < '1' || input > '3') ; 
+
+
+        user = input - '0';             
+
+        com = (int)(Math.random() * 3) + 1;       
+
+        System.out.println("컴퓨터 : " + KBB[com] ); 
+        System.out.println("YOU : " + KBB[user]); 
+
+        switch(user-com) { 
+              case 2: 
+              case -1: 
+                    System.out.println("컴퓨터가 이겼습니다."); 
+                    break; 
+              case 1: 
+              case -2: 
+                    System.out.println("당신이 이겼습니다."); 
+                    break; 
+              case 0 : 
+                    System.out.println("비겼습니다."); 
+                    break; 
+        } 
+	}
+
+}
+
+
+// Second way
+
+import java.util.Random;
+import java.util.Scanner;
+
+
+public class rsp1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		 Scanner scan = new Scanner(System.in);
+		  Random punch = new Random();
+		  String[] Str = new String[]{"가위", "바위", "보"};  
+		  int user;
+		  int com;
+
+
+		  while(true){
+		   System.out.println("0.가위,"+ "1.바위,"+ "2.보,"+ "3.종료");
+		   System.out.println("======================");
+		   System.out.print("무엇을 선택하시겠습니까?  ");
+		   user = scan.nextInt();
+		   com = punch.nextInt(3);
+		   
+		   if(user > 3){
+		    System.out.println("잘못 선택하셨습니다.");
+		    continue;}
+		   if(user == 3){
+		    System.out.println("종료합니다.\n");
+		    break;}
+		   
+
+		   if(user == com){
+		    System.out.println("당신은 : "+Str[user]+", 컴퓨터는 : "+Str[com]);
+		    System.out.println("비겼습니다.\n");}
+		   
+		   else if(user == 2 && com == 0){
+		    System.out.println("당신은 : "+Str[user]+", 컴퓨터는 : "+Str[com]);
+		    System.out.println("당신이 졌습니다.\n");}
+		   
+		   else if(user == 0 && com == 2){
+		    System.out.println("당신은 : "+Str[user]+", 컴퓨터는 : "+Str[com]);
+		    System.out.println("당신이 이겼습니다.\n");}
+		   
+		   
+		   else if(user > com){
+		    System.out.println("당신은 : "+Str[user]+", 컴퓨터는 : "+Str[com]);
+		    System.out.println("당신이 이겼습니다.\n");}
+		    
+		   
+		   
+		   else{
+		    System.out.println("당신은 : "+Str[user]+", 컴퓨터는 : " +Str[com]);
+		   System.out.println("당신이 졌습니다.\n");}
+		   
+		      
+
+		   
+		      }
+
+	}
+
+}
